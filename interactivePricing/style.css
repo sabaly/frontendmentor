@@ -85,7 +85,7 @@ body {
 
 .progress-state {
     background: hsl(174, 77%, 80%);
-    width: 30%;
+    width: 52%;
     position: relative;
     left: 0;
     height: 10px;
@@ -101,11 +101,21 @@ body {
     align-items: center;
     position: relative;
     top: -225%;
-    left: 30%;
-    box-shadow: 1px 10px 10px 5px hsl(174, 77%, 80%) ;
+    left: 50%;
+    box-shadow: 1px 10px 20px 2px hsl(174, 86%, 45%);
     cursor: pointer;
 }
 
+.slider:hover { 
+    transition: 0.4s; 
+    background: hsl(174, 77%, 80%);
+    box-shadow: 1px 10px 20px 2px hsl(174, 77%, 80%) ;
+}
+.slider:active { 
+    transition: 0.4s; 
+    background: hsl(174, 86%, 45%);
+    box-shadow: 1px 10px 20px 2px hsl(174, 86%, 45%) ;
+}
 .billings {
     display: flex;
     justify-content: center;
@@ -243,4 +253,12 @@ hr {
     #trial {
         margin-bottom: 50px;
     }
+}
+
+/*
+    Keyframes
+*/
+@keyframes popup {
+    from {transform : scale(0.9); }
+    to { transform: scale(1); }
 }
