@@ -1,0 +1,158 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>HAPPY VALENTINA BABY</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta charset="utf-8"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Loved+by+the+King&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Loved by the King', cursive;
+                background-color: #000;
+            }
+            header {
+                height: 10vh;
+            }
+            .container {
+                width: 100%;
+                height: 80vh;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                background: url("images/kiss.gif") center no-repeat;
+            }
+
+            .message {
+                position: relative;
+                width: 80%;
+                margin: auto;
+                text-align: left;
+                color: white;
+                font-size: 50px;
+            }
+
+            footer {
+                color: white;
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            .hearts {
+                display: flex;
+                justify-content: space-around;
+            }
+
+            .heart {
+                font-size: 50px;
+                color: palevioletred;
+            }
+
+            .button{
+                width: 50%;
+                padding: 10px;
+                background: lightcoral;
+                color: white;
+                border-radius: 25px;
+                font-size: 10px;
+                position: relative;
+                left: 25%;
+                
+            }
+
+            @keyframes translate {
+                from { transform: translateY(0);}
+                to { transform: translateY(-1000px);}
+            }
+
+            @keyframes slideDown {
+                from { position: relative; top: -10%;}
+                to { position: relative; top: 0;}
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <p class="message">
+                <button class="button">Lire le message</button>
+            </p>
+        </div>
+        <footer>
+            <p>
+                From your <span style="color: red;"> Lover</span>, I <span style="color: red;">&hearts;</span> U
+            </p>
+        </footer>
+        <div class="hearts">
+            <div class="heart" style="color: red;animation: translate 7s ease infinite;">&heartsuit;</div>
+            <div class="heart" style="color: lightcoral;animation: translate 10s ease infinite;">&heartsuit;</div>
+            <div class="heart" style="color: white;animation: translate 15s ease infinite;">&hearts;</div>
+            <div class="heart" style="color: red;animation: translate 5s ease infinite;">&hearts;</div>
+            <div class="heart" style="color: white;animation: translate 25s ease infinite;">&heartsuit;</div>
+            <div class="heart" style="color: lightcoral;animation: translate 30s ease infinite;">&hearts;</div>
+            <div class="heart" style="color: yellow;animation: translate 20s ease infinite;">&heartsuit;</div>
+
+            <div class="heart" style="color: white;animation: translate 25s ease infinite;">&heartsuit;</div>
+            <div class="heart" style="color: red;animation: translate 7s ease infinite;">&heartsuit;</div>
+            <div class="heart" style="color: yellow;animation: translate 20s ease infinite;">&heartsuit;</div>
+            <div class="heart" style="color: lightcoral;animation: translate 30s ease infinite;">&hearts;</div>
+            <div class="heart" style="color: lightcoral;animation: translate 10s ease infinite;">&heartsuit;</div>
+            <div class="heart" style="color: red;animation: translate 5s ease infinite;">&hearts;</div>
+            <div class="heart" style="color: white;animation: translate 15s ease infinite;">&hearts;</div>
+        </div>
+
+        <audio id="sound" src="Perfect - Ed Sheeran.mp3" loop type="audio/mpeg"></audio>
+    </body>
+
+    <script>
+        var btn = document.querySelector('.button');
+        var message = document.querySelector('.message');
+        btn.addEventListener('click', e => {
+            document.getElementById("sound").play();
+            message.innerHTML = "";
+            readMessage()
+        });
+
+        function readMessage() {
+
+            messages = [
+                "Salut bae <span style='color: yellow;'>&hearts;</span>, voici mon message de valentin",
+                "Déjà sache que tu me manques beaucoup",
+                "Tu es venu dans ma vie...",
+                "Et tu en as fait un monde dans lequel",
+                "il est merveilleux de vivre",
+                "Tu m'as fait me sentir si spécial avec tous ce que tu dis",
+                "Surtout ce que tu m'as récement dit",
+                "Tu as réchauffé mon coeur, quand j'ai su que tu m'aimes...",
+                "Il n'y a rien de plus précieux en ce monde que le sentiment d'exister pour quelqu'un",
+                "Du fond de mon coeur...",
+                "Je souhaite juste te dire ceci...",
+                "Tu es la personne que <span style='color: lightcoral'>j'aime</span>",
+                "<strong style='color: lightcoral'>Je vais toujours continuer de t'aimer</strong>",
+                "Bb je veux bien exister pour toi",
+                "HAPPY VALENTINES DAY",
+                "I <span style='font-size: 100px; color: lightgreen;'>&hearts;</span> U",
+                ""
+            ]
+            var index = 0;
+            var shifter = setInterval(shiftMessage, 7000, message, index);
+            function shiftMessage() {
+                message.style.animation = "slideDown 1s forwards 1";
+                message.innerHTML = messages[index];
+                index++;
+                if(index == messages.length) {
+                    var button = document.createElement('button');
+                    button.classList.add("button");
+                    var textnode = document.createTextNode("Je t'aime");
+                    button.appendChild(textnode);
+                    message.appendChild(button);
+                    clearInterval(shifter);
+                }
+            }
+        }
+    </script>
+</html>
