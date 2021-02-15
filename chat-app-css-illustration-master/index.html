@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Chat-app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    :root {
+      --white: hsl(0, 0%, 100%);
+      --AppBg: hsl(270, 20%, 96%);
+      --submitBtnBg: hsl(271, 36%, 24%);
+      --radionBtn: hsl(289, 100%, 72%);
+      --lightMagenta: hsl(293, 100%, 63%);
+      --lightViolet: hsl(264, 100%, 61%);
+      --subHeading: hsl(276, 100%, 81%);
+      --leftChat: hsl(276, 55%, 52%);
+      --rightChat: hsl(271, 15%, 43%);
+      --placeholderText: hsl(206, 6%, 79%);
+      --mainHeading: hsl(271, 36%, 24%);
+      --paragraph: hsl(270, 7%, 64%);
+    }
+    body {
+      background: var(--white);
+      font-size: 16px;
+    }
+    .violet-band {
+      width: 40%;
+      height: 80vh;
+      background: linear-gradient(var(--lightMagenta), var(--lightViolet));
+      border-radius: 0 0 50% 50%;
+      position: fixed;
+      left: -10%;
+      top: 0;
+      z-index: -1;
+    }
+    .container {
+      position: sticky;
+      top: 10%;
+      left: 19%;
+      width: 60%;
+      padding: 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .phone {
+      width: 45%;
+      background: white;
+      padding: 20px;
+      border-radius: 30px;
+      box-shadow: 10px 15px 10px #ccc;
+    }
+    .app {
+      background: var(--AppBg);
+      padding: 10px;
+      border-radius: 0px 0px 30px 30px;
+    }
+    .white-space-top {
+      width: 60%;
+      position: relative;
+      left: 20%;
+      top: -15px;
+      height: 30px;
+      border-radius: 20px;
+      background: var(--white);
+    }
+    .phone-top {
+      background: linear-gradient(to right, var(--lightViolet), var(--lightMagenta));
+      border-radius: 20px 20px 0px 0px;
+    }
+    .user-info {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      padding: 5px;
+      }
+
+    .avatar {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      border-radius: 50%;
+      border: 2px solid var(--white);
+    }
+
+    .user-info div {
+      color: var(--white);
+      line-height: 5%;
+    }
+    .user-info div  p {
+      color: var(--subHeading);
+    }
+
+    .user-sms {
+      width: 60%;
+      padding: 10px;
+      border-radius: 10px 10px 10px 0px;
+      font-size: 10px;
+      color: var(--leftChat);
+      background: #ccc;
+    }
+    .my-sms {
+      width: 60%;
+      position: relative;
+      left: 30%;
+      text-align: left;
+      padding: 10px;
+      border-radius: 10px 10px 0px 10px;
+      font-size: 10px;
+      color: var(--rightChat);
+      background: var(--white);
+    }
+
+    .pictures {
+      position: relative;
+      left: 40%;
+      width: 60%;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .pictures img{
+      width: 30%;
+      height: 30%;
+      border-radius: 10px;
+    }
+
+    .notification {
+      background: linear-gradient(to right, var(--lightMagenta), var(--lightViolet));
+      color: var(--white);
+      width: 80%;
+      padding: 5px;
+      font-size: 10px;
+      border-radius: 10px 10px 10px 0px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      margin: 10px;
+    }
+    .notification p {
+      color: var(--subHeading);
+    }
+    .editer {
+      display: flex;
+      align-items: center;
+      background: var(--white);
+      height: 30px;
+      padding: 5px;
+      margin: 5px;
+      border-radius: 20px;
+    }
+    .editer input[type=text] {
+      color: var(--placeholderText);
+      height: 30px;
+      border-radius: 20px;
+      border: none;
+      margin: 5px;
+      padding: 5px;
+      width: 100%;
+    }
+    .editer input[type=submit] {
+      background: var(--submitBtnBg);
+      color: var(--white);
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      border: none;
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    .description {
+        width: 55%;
+        display: flex;
+        flex-direction: column;
+        margin: 50px;
+    }
+    .description h1 {
+      color: var(--mainHeading);
+    }
+    .description p {
+      color: var(--paragraph);
+      width: 100%;
+      text-align: left;
+      
+    }
+
+    @media (max-width: 768px ) {
+      .container {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .phone {
+        width: 65%;
+      }
+
+      .violet-band {
+        width: 90%;
+        left: -40%;
+      }
+
+      .description {
+        width: 80%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="violet-band"></div>
+  <div class="container">
+    <div class="phone">
+      <div class="phone-top">
+        <div class="white-space-top"></div>
+        <div class="user-info">
+          <img class="avatar" src="images/avatar.jpg"/>
+          <div>
+            <h3>Samuel Green</h3>
+            <p>Available to Walk</p>
+          </div>
+        </div>
+      </div>
+      <div class="app">
+        <p class="user-sms">
+          That sounds great. I’d be happy with that.
+        </p>
+        <p class="user-sms">
+          Could you send over some pictures of your dog, please?
+        </p>
+
+        <div class="pictures">
+          <img src="images/dog-image-1.jpg">
+          <img src="images/dog-image-2.jpg">
+          <img src="images/dog-image-3.jpg">
+        </div>
+        <p class="my-sms">
+          Here are a few pictures. She’s a happy girl!
+        </p>
+        <p class="my-sms">
+          Can you make it?
+        </p>
+        <p class="user-sms">
+          She looks so happy! The time we discussed works. How long shall I take her out for?
+        </p>
+        <div class="notification">
+          <p>30 minute walk</p>
+        <span class="price">$29</span>
+        </div>
+
+        <div class="notification">
+          <p>1 hour walk</p>
+        <span class="price">$49</span>
+        </div>
+
+        <div class="editer">
+          <input placeholder="Type a message…" type="text"/>
+          <input value="&bkarow;" type="submit"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="description">
+      <h1>Simple booking</h1>
+      <p>
+        Stay in touch with our dog walkers through the chat interface. This makes it easy to 
+        discuss arrangements and make bookings. Once the walk has been completed you can rate 
+        your walker and book again all through the chat.
+      </p>
+    </div>
+  </div>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Sabaly</a>.
+  </div>
+</body>
+</html>
