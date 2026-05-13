@@ -1,133 +1,217 @@
-<!Doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>HAPPY BIRTHDAY BESSEL'AM</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta charset="utf-8"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Loved+by+the+King&display=swap" rel="stylesheet">
-        <style>
-            body {
-                font-family: 'Loved by the King', cursive;
-                background-color: #000;
+<head>
+    <title>HAPPY VALENTINA BABY</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8"/>
+    <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)">
+    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Loved+by+the+King&display=swap)" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Loved by the King', cursive;
+            background-color: #000;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .main-container {
+            display: flex;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        /* Left side - Message area */
+        .left-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            position: relative;
+        }
+
+        .message {
+            width: 100%;
+            text-align: left;
+            color: white;
+            font-size: 45px;
+            line-height: 1.4;
+            padding: 20px;
+        }
+
+        .button {
+            padding: 15px 40px;
+            background: linear-gradient(135deg, lightcoral, palevioletred);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 20px;
+            font-family: 'Loved by the King', cursive;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.5);
+        }
+
+        .footer-text {
+            color: white;
+            font-size: 25px;
+            margin-top: 30px;
+        }
+
+        /* Right side - Animated images */
+        .right-side {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            background: url("images/kiss.gif") center center no-repeat;
+            background-size: contain;
+        }
+
+        /* Floating hearts overlay on right side */
+        .hearts-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 40px;
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
             }
-            header {
-                height: 10vh;
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
             }
-            .container {
-                width: 100%;
-                height: 80vh;
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                background: url("images/kiss.gif") center no-repeat;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .message.animate {
+            animation: slideDown 1s forwards;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .left-side {
+                order: 2;
+                padding: 20px;
+            }
+
+            .right-side {
+                order: 1;
+                min-height: 40vh;
             }
 
             .message {
-                position: relative;
-                width: 80%;
-                margin: auto;
-                text-align: left;
-                color: white;
-                font-size: 50px;
+                font-size: 35px;
+                text-align: center;
             }
-
-            footer {
-                color: white;
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-            }
-
-            .hearts {
-                display: flex;
-                justify-content: space-around;
-            }
-
-            .heart {
-                font-size: 50px;
-                color: palevioletred;
-            }
-
-            .button{
-                width: 50%;
-                padding: 10px;
-                background: lightcoral;
-                color: white;
-                border-radius: 25px;
-                font-size: 10px;
-                position: relative;
-                left: 25%;
-                
-            }
-
-            @keyframes translate {
-                from { transform: translateY(0);}
-                to { transform: translateY(-1000px);}
-            }
-
-            @keyframes slideDown {
-                from { position: relative; top: -10%;}
-                to { position: relative; top: 0;}
-            }
-            
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <p class="message">
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Left Side: Text Content -->
+        <div class="left-side">
+            <div class="message">
                 <button class="button">Lire le message</button>
+            </div>
+            <p class="footer-text">
+                From your <span style="color: red;">Lover</span>, I <span style="color: red;">&hearts;</span> U
             </p>
         </div>
-        <footer>
-            <p>
-                From your <span style="color: red;"> Lover</span>, I <span style="color: red;">&hearts;</span> U
-            </p>
-        </footer>
-        <div class="hearts">
-            <div class="heart" style="color: red;animation: translate 7s ease infinite;">&heartsuit;</div>
-            <div class="heart" style="color: lightcoral;animation: translate 10s ease infinite;">&heartsuit;</div>
-            <div class="heart" style="color: white;animation: translate 15s ease infinite;">&hearts;</div>
-            <div class="heart" style="color: red;animation: translate 5s ease infinite;">&hearts;</div>
-            <div class="heart" style="color: white;animation: translate 25s ease infinite;">&heartsuit;</div>
-            <div class="heart" style="color: lightcoral;animation: translate 30s ease infinite;">&hearts;</div>
-            <div class="heart" style="color: yellow;animation: translate 20s ease infinite;">&heartsuit;</div>
 
-            <div class="heart" style="color: white;animation: translate 25s ease infinite;">&heartsuit;</div>
-            <div class="heart" style="color: red;animation: translate 7s ease infinite;">&heartsuit;</div>
-            <div class="heart" style="color: yellow;animation: translate 20s ease infinite;">&heartsuit;</div>
-            <div class="heart" style="color: lightcoral;animation: translate 30s ease infinite;">&hearts;</div>
-            <div class="heart" style="color: lightcoral;animation: translate 10s ease infinite;">&heartsuit;</div>
-            <div class="heart" style="color: red;animation: translate 5s ease infinite;">&hearts;</div>
-            <div class="heart" style="color: white;animation: translate 15s ease infinite;">&hearts;</div>
+        <!-- Right Side: Animated Images -->
+        <div class="right-side">
+            <div class="hearts-container" id="heartsContainer">
+                <!-- Hearts will be generated by JavaScript -->
+            </div>
         </div>
+    </div>
 
-        <audio id="sound" src="Perfect - Ed Sheeran.mp3" loop type="audio/mpeg"></audio>
-    </body>
+    <audio id="sound" src="Perfect - Ed Sheeran.mp3" loop type="audio/mpeg"></audio>
 
     <script>
+        // Generate floating hearts on the right side
+        function createHearts() {
+            const container = document.getElementById('heartsContainer');
+            const colors = ['red', 'lightcoral', 'white', 'yellow', 'palevioletred', 'pink'];
+            const heartSymbols = ['♥', '♡', '❤', '💕'];
+
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                heart.style.animationDelay = (Math.random() * 5) + 's';
+                heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                container.appendChild(heart);
+            }
+        }
+
+        createHearts();
+
+        // Message functionality
         var btn = document.querySelector('.button');
         var message = document.querySelector('.message');
+
         btn.addEventListener('click', e => {
             document.getElementById("sound").play();
             message.innerHTML = "";
-            readMessage()
+            readMessage();
         });
 
         function readMessage() {
-
-            messages = [
+            const messages = [
                 "Joyeux anniversaire amour <span style='color: yellow;'>&hearts;</span>",
                 "Mes meilleurs voeux à toi",
                 "Cet an en plus marque le debut d'une toute nouvelle direction...",
-                "Une direction qui tu as engagé à mes côtés",
+                "Une direction que tu as engagée à mes côtés",
                 "Que Dieu te le facilite",
-                "Que bonheur et santé t'y accompagne",
-                "Que succes s'en suive",
-                "Tu es une fille, que dise, une femme merveilleuse...",
+                "Que bonheur et santé t'accompagnent",
+                "Que succès s'en suive",
+                "Tu es une fille, que dis-je, une femme merveilleuse...",
                 "Et je t'aime",
                 "Du fond de mon coeur...",
                 "Un excellent anniversaire à toi, MA FEMME...",
@@ -135,24 +219,34 @@
                 "<strong style='color: lightcoral'>Je vais toujours continuer de t'aimer</strong>",
                 "Bb je veux bien exister pour toi",
                 "HAPPY BIRTHDAY",
-                "I <span style='font-size: 100px; color: lightgreen;'>&hearts;</span> U",
+                "I <span style='font-size: 80px; color: lightgreen;'>&hearts;</span> U",
                 ""
-            ]
-            var index = 0;
-            var shifter = setInterval(shiftMessage, 7000, message, index);
+            ];
+
+            let index = 0;
+
             function shiftMessage() {
-                message.style.animation = "slideDown 1s forwards 1";
-                message.innerHTML = messages[index];
-                index++;
-                if(index == messages.length) {
-                    var button = document.createElement('button');
-                    button.classList.add("button");
-                    var textnode = document.createTextNode("Je t'aime");
-                    button.appendChild(textnode);
-                    message.appendChild(button);
-                    clearInterval(shifter);
+                if (index < messages.length) {
+                    message.classList.remove('animate');
+                    void message.offsetWidth; // Trigger reflow
+                    message.classList.add('animate');
+                    message.innerHTML = messages[index];
+                    index++;
+
+                    if (index === messages.length) {
+                        const button = document.createElement('button');
+                        button.classList.add('button');
+                        button.textContent = "Je t'aime ❤️";
+                        button.style.animation = "pulse 1s infinite";
+                        message.appendChild(button);
+                        clearInterval(shifter);
+                    }
                 }
             }
+
+            shiftMessage(); // Show first message immediately
+            const shifter = setInterval(shiftMessage, 7000);
         }
     </script>
+</body>
 </html>
